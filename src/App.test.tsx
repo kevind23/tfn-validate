@@ -1,9 +1,12 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
+test("renders header and form", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const text = screen.getByText("Check a TFN");
+  expect(text).toBeInTheDocument();
+  const tfnInput = screen.getByPlaceholderText(/Enter a TFN/);
+  expect(tfnInput).toBeInTheDocument();
+  const submitButton = screen.getByRole("button", { name: "Validate" });
+  expect(submitButton).toBeInTheDocument();
 });

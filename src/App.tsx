@@ -1,25 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Container from 'react-bootstrap/Container';
+import { Header } from './components/header/Header';
+import { ValidatorApp } from './components/validator/ValidatorApp';
+import { TfnValidationServiceContext } from './context';
+import { TfnValidationService } from './services/TfnValidationService';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container className="p-3">
+      <Header />
+      <TfnValidationServiceContext.Provider
+        value={new TfnValidationService("https://localhost:44386/validate")}
+      >
+        <ValidatorApp />
+      </TfnValidationServiceContext.Provider>
+    </Container>
   );
 }
 
