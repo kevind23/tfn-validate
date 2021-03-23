@@ -5,7 +5,8 @@ import { TfnValidationServiceContext } from './context';
 import { TfnValidationService } from './services/TfnValidationService';
 
 const validationApiUrl =
-  process.env.VALIDATION_API_URL || "https://localhost:44386/validate";
+  process.env.REACT_APP_VALIDATION_API_URL ||
+  "https://localhost:44386/validate";
 
 function App() {
   return (
